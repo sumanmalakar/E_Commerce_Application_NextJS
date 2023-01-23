@@ -1,8 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+
 
 export default function Home() {
   return (
@@ -14,13 +13,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar />
-
+    
       <div className="flex justify-center my-10">
         <Image src="/home.jpg" alt="f" width={700} height={10} />
       </div>
 
-      <Footer />
+   
     </>
   );
 }

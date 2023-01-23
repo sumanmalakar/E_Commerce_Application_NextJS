@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link';
+
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 
@@ -9,7 +10,7 @@ export default function Navbar() {
   return (
     <div className="flex flex-col md:flex-row md:justify-start justify-center items-center bg-pink-600 text-white">
       <div>
-        <h1 className="logo mx-3 p-3 font-bold">E-Commerce</h1>
+        <Link href={"/"} className="logo mx-3 p-3 font-bold">E-Commerce</Link>
       </div>
       <div className="nav">
         <ul className="flex  item-center">
