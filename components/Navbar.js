@@ -13,10 +13,10 @@ export default function Navbar() {
         <Link href={"/"} className="logo mx-3 p-3 font-bold">E-Commerce</Link>
       </div>
       <div className="nav">
-        <ul className="flex  item-center">
+        <ul className="flex  item-center space-x-6 font-bold md:text-md ">
           <Link href={"/tshirts"}>
               <li
-                className="mx-2 p-3 hover:bg-purple-900 hover:font-light">Tshirts
+                className="mx-2 py-4 hover:bg-purple-900 ">Tshirts
               </li>
         
           </Link>
@@ -24,8 +24,8 @@ export default function Navbar() {
            
               <li
                
-                className="mx-2 p-3 hover:bg-purple-900
-                hover:font-light">Hoodies
+                className="mx-2 py-4 hover:bg-purple-900
+                ">Hoodies
               </li>
            
           </Link>
@@ -33,8 +33,8 @@ export default function Navbar() {
           
               <li
                
-                className="mx-2 p-3 hover:bg-purple-900
-                hover:font-light">Stickers{" "}
+                className="mx-2 py-4 hover:bg-purple-900
+                ">Stickers{" "}
               </li>
          
           </Link>
@@ -42,7 +42,7 @@ export default function Navbar() {
         
               <li
               
-                className="mx-2 p-3 hover:bg-purple-900 hover:font-light">Mugs
+                className="mx-2 py-4 hover:bg-purple-900 ">Mugs
               </li>
           
           </Link>
