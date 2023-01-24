@@ -93,6 +93,42 @@ const ref  = useRef()
           <AiFillCloseCircle />
         </span>
         <ol className="list-decimal font-semibold py-2">
+
+
+          
+          <li>
+            <div className="item flex my-5">
+              <div className="w-2/3 font-semibold">Tshirt - Wear the code</div>
+              <div className="flex justify-center items-center w-1/3 font-semibold text-lg">
+                <AiFillMinusCircle className="text-pink-500 cursor-pointer" /> 
+                <span className="mx-3 text-sm">1</span>
+                <AiFillPlusCircle  className="text-pink-500 cursor-pointer" />
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div className="item flex my-5">
+              <div className="w-2/3 font-semibold">Tshirt - Wear the code</div>
+              <div className="flex justify-center items-center w-1/3 font-semibold text-lg">
+                <AiFillMinusCircle className="text-pink-500 cursor-pointer" /> 
+                <span className="mx-3 text-sm">1</span>
+                <AiFillPlusCircle  className="text-pink-500 cursor-pointer" />
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div className="item flex my-5">
+              <div className="w-2/3 font-semibold">Tshirt - Wear the code</div>
+              <div className="flex justify-center items-center w-1/3 font-semibold text-lg">
+                <AiFillMinusCircle className="text-pink-500 cursor-pointer" /> 
+                <span className="mx-3 text-sm">1</span>
+                <AiFillPlusCircle  className="text-pink-500 cursor-pointer" />
+              </div>
+            </div>
+          </li>
+
           <li>
             <div className="item flex my-5">
               <div className="w-2/3 font-semibold">Tshirt - Wear the code</div>

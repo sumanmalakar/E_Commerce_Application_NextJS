@@ -10,7 +10,8 @@ export default function Footer() {
             href={"/"}
             className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
           >
-          <span className="ml-3 text-xl cursor-pointer">Coding Ecommerce</span>
+          <span className="ml-3 text-xl cursor-pointer">Coding Ecommerce #SUMAN_MALAKAR</span>
+     
           </Link>
 
           <p className="mt-2 text-sm text-gray-500">
