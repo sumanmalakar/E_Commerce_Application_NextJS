@@ -1,9 +1,199 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
+import Link from 'next/link'
 
 export default function stickerks() {
   return (
     <div>
-      This is stickers page 
+
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-wrap -m-4">
+
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5 ">
+              <Link href={'/product/wear-the-code'} class="block relative  rounded overflow-hidden ">
+                <img alt="ecommerce" class="m-auto   h-[30vh] md:h-[36h] block" src="https://m.media-amazon.com/images/I/61-wdPIF3sL._AC_UY218_.jpg" />
+              </Link>
+              <div class="mt-4 text-center">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">The E-commerce</h2>
+                <p class="mt-1">₹499.00</p>
+                <p class="mt-1">S, M, L, XL, XLL</p>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5 ">
+              <Link href={'/product/wear-the-code'} class="block relative  rounded overflow-hidden ">
+                <img alt="ecommerce" class="m-auto   h-[30vh] md:h-[36h] block" src="https://m.media-amazon.com/images/I/61-wdPIF3sL._AC_UY218_.jpg" />
+              </Link>
+              <div class="mt-4 text-center">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">The E-commerce</h2>
+                <p class="mt-1">₹499.00</p>
+                <p class="mt-1">S, M, L, XL, XLL</p>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5 ">
+              <Link href={'/product/wear-the-code'} class="block relative  rounded overflow-hidden ">
+                <img alt="ecommerce" class="m-auto   h-[30vh] md:h-[36h] block" src="https://m.media-amazon.com/images/I/61-wdPIF3sL._AC_UY218_.jpg" />
+              </Link>
+              <div class="mt-4 text-center">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">The E-commerce</h2>
+                <p class="mt-1">₹499.00</p>
+                <p class="mt-1">S, M, L, XL, XLL</p>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5 ">
+              <Link href={'/product/wear-the-code'} class="block relative  rounded overflow-hidden ">
+                <img alt="ecommerce" class="m-auto   h-[30vh] md:h-[36h] block" src="https://m.media-amazon.com/images/I/61-wdPIF3sL._AC_UY218_.jpg" />
+              </Link>
+              <div class="mt-4 text-center">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">The E-commerce</h2>
+                <p class="mt-1">₹499.00</p>
+                <p class="mt-1">S, M, L, XL, XLL</p>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5 ">
+              <Link href={'/product/wear-the-code'} class="block relative  rounded overflow-hidden ">
+                <img alt="ecommerce" class="m-auto   h-[30vh] md:h-[36h] block" src="https://m.media-amazon.com/images/I/61-wdPIF3sL._AC_UY218_.jpg" />
+              </Link>
+              <div class="mt-4 text-center">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">The E-commerce</h2>
+                <p class="mt-1">₹499.00</p>
+                <p class="mt-1">S, M, L, XL, XLL</p>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5 ">
+              <Link href={'/product/wear-the-code'} class="block relative  rounded overflow-hidden ">
+                <img alt="ecommerce" class="m-auto   h-[30vh] md:h-[36h] block" src="https://m.media-amazon.com/images/I/61-wdPIF3sL._AC_UY218_.jpg" />
+              </Link>
+              <div class="mt-4 text-center">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">The E-commerce</h2>
+                <p class="mt-1">₹499.00</p>
+                <p class="mt-1">S, M, L, XL, XLL</p>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5 ">
+              <Link href={'/product/wear-the-code'} class="block relative  rounded overflow-hidden ">
+                <img alt="ecommerce" class="m-auto   h-[30vh] md:h-[36h] block" src="https://m.media-amazon.com/images/I/61-wdPIF3sL._AC_UY218_.jpg" />
+              </Link>
+              <div class="mt-4 text-center">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">The E-commerce</h2>
+                <p class="mt-1">₹499.00</p>
+                <p class="mt-1">S, M, L, XL, XLL</p>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5 ">
+              <Link href={'/product/wear-the-code'} class="block relative  rounded overflow-hidden ">
+                <img alt="ecommerce" class="m-auto   h-[30vh] md:h-[36h] block" src="https://m.media-amazon.com/images/I/61-wdPIF3sL._AC_UY218_.jpg" />
+              </Link>
+              <div class="mt-4 text-center">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">The E-commerce</h2>
+                <p class="mt-1">₹499.00</p>
+                <p class="mt-1">S, M, L, XL, XLL</p>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5 ">
+              <Link href={'/product/wear-the-code'} class="block relative  rounded overflow-hidden ">
+                <img alt="ecommerce" class="m-auto   h-[30vh] md:h-[36h] block" src="https://m.media-amazon.com/images/I/61-wdPIF3sL._AC_UY218_.jpg" />
+              </Link>
+              <div class="mt-4 text-center">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">The E-commerce</h2>
+                <p class="mt-1">₹499.00</p>
+                <p class="mt-1">S, M, L, XL, XLL</p>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5 ">
+              <Link href={'/product/wear-the-code'} class="block relative  rounded overflow-hidden ">
+                <img alt="ecommerce" class="m-auto   h-[30vh] md:h-[36h] block" src="https://m.media-amazon.com/images/I/61-wdPIF3sL._AC_UY218_.jpg" />
+              </Link>
+              <div class="mt-4 text-center">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">The E-commerce</h2>
+                <p class="mt-1">₹499.00</p>
+                <p class="mt-1">S, M, L, XL, XLL</p>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5 ">
+              <Link href={'/product/wear-the-code'} class="block relative  rounded overflow-hidden ">
+                <img alt="ecommerce" class="m-auto   h-[30vh] md:h-[36h] block" src="https://m.media-amazon.com/images/I/61-wdPIF3sL._AC_UY218_.jpg" />
+              </Link>
+              <div class="mt-4 text-center">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">The E-commerce</h2>
+                <p class="mt-1">₹499.00</p>
+                <p class="mt-1">S, M, L, XL, XLL</p>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5 ">
+              <Link href={'/product/wear-the-code'} class="block relative  rounded overflow-hidden ">
+                <img alt="ecommerce" class="m-auto   h-[30vh] md:h-[36h] block" src="https://m.media-amazon.com/images/I/61-wdPIF3sL._AC_UY218_.jpg" />
+              </Link>
+              <div class="mt-4 text-center">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">The E-commerce</h2>
+                <p class="mt-1">₹499.00</p>
+                <p class="mt-1">S, M, L, XL, XLL</p>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5 ">
+              <Link href={'/product/wear-the-code'} class="block relative  rounded overflow-hidden ">
+                <img alt="ecommerce" class="m-auto   h-[30vh] md:h-[36h] block" src="https://m.media-amazon.com/images/I/61-wdPIF3sL._AC_UY218_.jpg" />
+              </Link>
+              <div class="mt-4 text-center">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">The E-commerce</h2>
+                <p class="mt-1">₹499.00</p>
+                <p class="mt-1">S, M, L, XL, XLL</p>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5 ">
+              <Link href={'/product/wear-the-code'} class="block relative  rounded overflow-hidden ">
+                <img alt="ecommerce" class="m-auto   h-[30vh] md:h-[36h] block" src="https://m.media-amazon.com/images/I/61-wdPIF3sL._AC_UY218_.jpg" />
+              </Link>
+              <div class="mt-4 text-center">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">The E-commerce</h2>
+                <p class="mt-1">₹499.00</p>
+                <p class="mt-1">S, M, L, XL, XLL</p>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5 ">
+              <Link href={'/product/wear-the-code'} class="block relative  rounded overflow-hidden ">
+                <img alt="ecommerce" class="m-auto   h-[30vh] md:h-[36h] block" src="https://m.media-amazon.com/images/I/61-wdPIF3sL._AC_UY218_.jpg" />
+              </Link>
+              <div class="mt-4 text-center">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">The E-commerce</h2>
+                <p class="mt-1">₹499.00</p>
+                <p class="mt-1">S, M, L, XL, XLL</p>
+              </div>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5 ">
+              <Link href={'/product/wear-the-code'} class="block relative  rounded overflow-hidden ">
+                <img alt="ecommerce" class="m-auto   h-[30vh] md:h-[36h] block" src="https://m.media-amazon.com/images/I/61-wdPIF3sL._AC_UY218_.jpg" />
+              </Link>
+              <div class="mt-4 text-center">
+                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">T-Shirts</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">The E-commerce</h2>
+                <p class="mt-1">₹499.00</p>
+                <p class="mt-1">S, M, L, XL, XLL</p>
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

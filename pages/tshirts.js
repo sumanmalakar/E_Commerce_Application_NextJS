@@ -5,6 +5,7 @@ import Link from 'next/link'
 export default function tshirts() {
   return (
     <div>
+
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
           <div class="flex flex-wrap -m-4">
@@ -193,6 +194,8 @@ export default function tshirts() {
           </div>
         </div>
       </section>
+
+      
     </div>
   )
 }
