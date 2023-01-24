@@ -74,14 +74,15 @@ const ref  = useRef()
         className="cart absolute right-0 top-2 mx-5  cursor-pointer
       "
       >
-        <AiOutlineShoppingCart className="text-3xl" />
+        <AiOutlineShoppingCart className="text-3xl md:text-2xl" />
       </div>
 
       {/* sidebar... */}
 
       <div
         ref={ref}
-        className="w-72 h-full sideCart absolute top-0 right-0 bg-pink-100 px-8 py-10 text-black transform
+        className="w-72  sideCart absolute top-0 right-0 bg-pink-100 px-8 py-10 text-black 
+        transform
          transition-transform translate-x-full"
       >
         <h2 className="font-bold text-xl text-center">Shopping Cart</h2>
@@ -95,49 +96,22 @@ const ref  = useRef()
           <li>
             <div className="item flex my-5">
               <div className="w-2/3 font-semibold">Tshirt - Wear the code</div>
-              <div className="flex justify-center items-center w-2/3 font-semibold text-lg">
+              <div className="flex justify-center items-center w-1/3 font-semibold text-lg">
                 <AiFillMinusCircle className="text-pink-500 cursor-pointer" /> 
                 <span className="mx-3 text-sm">1</span>
                 <AiFillPlusCircle  className="text-pink-500 cursor-pointer" />
               </div>
             </div>
           </li>
-          <li>
-            <div className="item flex my-5">
-              <div className="w-2/3 font-semibold">Tshirt - Wear the code</div>
-              <div className="flex justify-center items-center w-2/3 font-semibold">
-                1
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="item flex my-5">
-              <div className="w-2/3 font-semibold">Tshirt - Wear the code</div>
-              <div className="flex justify-center items-center w-2/3 font-semibold">
-                1
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="item flex my-5">
-              <div className="w-2/3 font-semibold">Tshirt - Wear the code</div>
-              <div className="flex justify-center items-center w-2/3 font-semibold">
-                1
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className="item flex my-5">
-              <div className="w-2/3 font-semibold">Tshirt - Wear the code</div>
-              <div className="flex justify-center items-center w-2/3 font-semibold">
-                1
-              </div>
-            </div>
-          </li>
+       
+         
+    
         </ol>
         <button class="flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded text-sm">
           <BsFillBagCheckFill className="m-1" /> 
         CheckOut</button>
+      
+      
       </div>
     </div>
   );
