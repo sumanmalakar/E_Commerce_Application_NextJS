@@ -1,19 +1,38 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRouter } from "next/router";
 import { useState } from "react";
+// import { json } from "stream/consumers";
 
 const Post = () => {
   const router = useRouter();
   const { slug } = router.query;
 
-  const [pin, setPin] = useState()
+  const [pin, setPin] = useState();
+  const [service, setService] = useState();
 
-  const checkServiceability = async () =>{
-      // let pins = await fetch('http://localhost:3000/api/pincode')
-      let pins = await fetch('/api/pincode')
-      let pinJson = await pins.json();
-      console.log(pinJson);
-  }
+  const checkServiceability = async (e) => {
+    e.preventDefault();
+    // let pins = await fetch('http://localhost:3000/api/pincode')
+
+    let pins = await fetch("/api/pincode");
+    let pinJson = await pins.json();
+
+    
+    console.log(pinJson, pin);
+
+    if (pinJson.includes(parseInt(pin))) {
+      setService(true);
+      console.log(service);
+    } else {
+      setService(false);
+      console.log(service);
+    }
+  };
+
+  const onChangePin = (e) => {
+    setPin(e.target.value);
+    console.log(pin);
+  };
 
   return (
     <>
@@ -27,10 +46,10 @@ const Post = () => {
             />
             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 class="text-sm title-font text-gray-500 tracking-widest">
-                BRAND NAME
+               Billion Dollar company!
               </h2>
               <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
-                The Catcher in the Rye
+               #Billion Dollar Brand
               </h1>
               <div class="flex mb-4">
                 <span class="flex items-center">
@@ -174,9 +193,16 @@ const Post = () => {
                 <span class="title-font font-medium text-2xl text-gray-900">
                   ₹58.00
                 </span>
-                <button class="flex ml-16 text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">
+
+                <button class=" flex ml-8 text-white bg-pink-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">
+                  Buy Now
+                </button>
+
+                <button class=" flex ml-4 text-white bg-pink-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">
                   Add to Cart
                 </button>
+
+
                 <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                   <svg
                     fill="currentColor"
@@ -199,13 +225,26 @@ const Post = () => {
                   placeholder="Enter pincode"
                   className=" px-2 border-2
                   text-black border-pink-400 sm:text-2xl"
+                  // value={pin}
+                  onChange={onChangePin}
                 />
                 <button
-                onClick = {checkServiceability}
-                 className="flex ml-16 text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">
+                  onClick={checkServiceability}
+                  className="flex ml-16 text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded"
+                >
                   Check PinCode
                 </button>
               </div>
+              {(!service && service != null) && (
+                <div className="text-red-700 text-sm mt-3">
+                  Sorry! We do not deliver to this pincode yet...
+                </div>
+              )}
+              {(service && service != null) && (
+                <div className="text-green-700 text-sm mt-3">
+                  Yay! This pincode is serviceable..
+                </div>
+              )}
             </div>
           </div>
         </div>
