@@ -41,7 +41,7 @@ export default function Navbar({
   const ref = useRef();
 
   return (
-    <div className="flex flex-col md:flex-row md:justify-start justify-center items-center bg-pink-600 text-white">
+    <div className="w-[100%] flex flex-col md:flex-row md:justify-start justify-center items-center bg-pink-600 text-white fixed top-0 z-20">
       <div>
         <Link href={"/"} className="logo mx-3 p-3 font-bold">
           E-Commerce
@@ -85,9 +85,10 @@ export default function Navbar({
 
       <div
         ref={ref}
-        className="w-72 h-full sideCart absolute top-0 right-0 bg-pink-100 px-8 py-10 text-black 
+        className="w-72 h-[100vh] sideCart absolute top-0 right-0 bg-pink-100 px-8 py-10 text-black 
         transform
-         transition-transform translate-x-full"
+         transition-transform translate-x-full 
+         z-10"
       >
         <h2 className="font-bold text-xl text-center">Shopping Cart</h2>
         <span
