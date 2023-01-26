@@ -3,7 +3,8 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 // import { json } from "stream/consumers";
 
-const Post = () => {
+const Post = ({addToCart}) => {
+  
   const router = useRouter();
   const { slug } = router.query;
 
@@ -22,16 +23,16 @@ const Post = () => {
 
     if (pinJson.includes(parseInt(pin))) {
       setService(true);
-      console.log(service);
+      // console.log(service);
     } else {
       setService(false);
-      console.log(service);
+      // console.log(service);
     }
   };
 
   const onChangePin = (e) => {
     setPin(e.target.value);
-    console.log(pin);
+    // console.log(pin);
   };
 
   return (
@@ -198,7 +199,9 @@ const Post = () => {
                   Buy Now
                 </button>
 
-                <button class=" flex ml-4 text-white bg-pink-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">
+                <button
+                onClick = {()=> {addToCart(slug,1,499,'wear the code', 'xl', 'red')}}
+                class=" flex ml-4 text-white bg-pink-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">
                   Add to Cart
                 </button>
 
