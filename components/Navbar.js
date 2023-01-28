@@ -52,8 +52,7 @@ export default function Navbar({
           </Link>
           <Link href={"/hoodies"}>
             <li
-              className="mx-2 py-4 hover:bg-purple-900
-                "
+              className="mx-2 py-4 hover:bg-purple-900"
             >
               Hoodies
             </li>
@@ -66,8 +65,12 @@ export default function Navbar({
               Stickers{" "}
             </li>
           </Link>
+
           <Link href={"/mugs"}>
             <li className="mx-2 py-4 hover:bg-purple-900 ">Mugs</li>
+          </Link>
+          <Link href={"/order"}>
+            <li className="mx-2 py-4 hover:bg-purple-900 ">Orders</li>
           </Link>
         </ul>
       </div>
