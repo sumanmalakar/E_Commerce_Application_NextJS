@@ -16,6 +16,7 @@ export default function App({ Component, pageProps }) {
       // if cart is already present in localStorage
       if (localStorage.getItem("cart")) {
         setCart(JSON.parse(localStorage.getItem("cart")))
+        saveCart(JSON.parse(localStorage.getItem("cart")))
       }
 
     } catch (error) {

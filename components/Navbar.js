@@ -16,15 +16,13 @@ export default function Navbar({
   addToCart,
   removeFromCart,
   clearCart,
-  subTotal
+  subTotal,
 }) {
-
   // console.log(cart,
   //   addToCart,
   //   removeFromCart,
   //   clearCart,
   //   subTotal);
-
 
   const toggleCart = () => {
     console.log("Cart is clicked");
@@ -85,9 +83,14 @@ export default function Navbar({
 
       <div
         ref={ref}
+        // className={`w-72 h-[100vh] sideCart absolute top-0 right-0 bg-pink-100 px-8 py-10 text-black
+        // transform
+        //  transition-transform ${Object.keys(cart).length !== 0 ? 'translate-x-0' : 'translate-x-full'}
+        //  z-10`}
+
         className="w-72 h-[100vh] sideCart absolute top-0 right-0 bg-pink-100 px-8 py-10 text-black 
         transform
-         transition-transform translate-x-full 
+         transition-transform  translate-x-full
          z-10"
       >
         <h2 className="font-bold text-xl text-center">Shopping Cart</h2>
@@ -133,7 +136,7 @@ export default function Navbar({
 
                       <AiFillPlusCircle
                         onClick={() =>
-                         addToCart(
+                          addToCart(
                             k,
                             1,
                             cart[k].price,
@@ -152,25 +155,25 @@ export default function Navbar({
           })}
         </ol>
 
-        <div className="flex">
-          <button class="flex text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm mx-2">
-            <BsFillBagCheckFill className="m-1" />
-            CheckOut
-          </button>
+        {/* subTotal */}
 
+        <div className="mt-3 flex  justify-center items-center my-3  ">
+          <span className="font-bold">SubTotal: ₹{subTotal}</span>
+        </div>
+
+        <div className="flex">
+          <Link href={"/checkout"}>
+            {" "}
+            <button class="flex text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm mx-2">
+              <BsFillBagCheckFill className="m-1" />
+              CheckOut
+            </button>
+          </Link>
           <button
             onClick={clearCart}
             class="flex text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm mx-2"
           >
             Clear Cart
-          </button>
-        </div>
-
-        {/* subTotal */}
-
-        <div className="mt-3 flex  justify-center items-center  ">
-          <button class=" text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm mx-2">
-            subTotal = {subTotal}
           </button>
         </div>
       </div>
