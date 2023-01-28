@@ -10,6 +10,7 @@ import {
 } from "react-icons/ai";
 
 import { BsFillBagCheckFill } from "react-icons/bs";
+import { MdAccountCircle } from "react-icons/md";
 
 export default function Navbar({
   cart,
@@ -51,11 +52,7 @@ export default function Navbar({
             <li className="mx-2 py-4 hover:bg-purple-900 ">Tshirts</li>
           </Link>
           <Link href={"/hoodies"}>
-            <li
-              className="mx-2 py-4 hover:bg-purple-900"
-            >
-              Hoodies
-            </li>
+            <li className="mx-2 py-4 hover:bg-purple-900">Hoodies</li>
           </Link>
           <Link href={"/stickerks"}>
             <li
@@ -69,17 +66,40 @@ export default function Navbar({
           <Link href={"/mugs"}>
             <li className="mx-2 py-4 hover:bg-purple-900 ">Mugs</li>
           </Link>
-          <Link href={"/order"}>
+          {/* <Link href={"/order"}>
             <li className="mx-2 py-4 hover:bg-purple-900 ">Orders</li>
-          </Link>
+          </Link> */}
         </ul>
       </div>
       <div
-        onClick={toggleCart}
-        className="cart absolute right-0 top-2 mx-5  cursor-pointer
+        className="flex cart absolute right-0 top-2 mx-5  cursor-pointer
       "
       >
-        <AiOutlineShoppingCart className="text-3xl md:text-2xl" />
+        {/* Login */}
+        <Link href={"/login"}>
+          {" "}
+          <MdAccountCircle className="text-3xl md:text-2xl mx-3" />{" "}
+        </Link>
+
+        {/* Shopping Cart */}
+        {Object.keys(cart).length !== 0 ? (
+          <div class="inline-flex relative w-fit">
+            <div class="absolute inline-block top-0 right-0 bottom-auto left-auto translate-x-2/4 -translate-y-1/2 rotate-0 skew-x-0 skew-y-0 scale-x-100 scale-y-100 py-1 px-2.5 text-xs leading-none text-center whitespace-nowrap align-baseline font-bold bg-violet-900 text-white rounded-full z-10">
+              {Object.keys(cart).length}
+            </div>
+            <AiOutlineShoppingCart
+              onClick={toggleCart}
+              className="text-4xl md:text-2xl"
+            />
+          </div>
+        ) : (
+          
+            <AiOutlineShoppingCart
+          onClick={toggleCart}
+          className="text-3xl md:text-2xl"
+        /> 
+          
+        )}
       </div>
 
       {/* sidebar... */}
