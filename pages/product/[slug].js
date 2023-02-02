@@ -1,10 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRouter } from "next/router";
 import { useState } from "react";
+import Product from "../../models/Product";
 // import { json } from "stream/consumers";
+import mongoose from "mongoose";
 
-const Post = ({addToCart}) => {
-  
+
+const Post = ({ addToCart, product, variants }) => {
+
+  console.log(product, variants);
+
   const router = useRouter();
   const { slug } = router.query;
 
@@ -18,7 +23,7 @@ const Post = ({addToCart}) => {
     let pins = await fetch("/api/pincode");
     let pinJson = await pins.json();
 
-    
+
     console.log(pinJson, pin);
 
     if (pinJson.includes(parseInt(pin))) {
@@ -43,16 +48,19 @@ const Post = ({addToCart}) => {
             <img
               alt="ecommerce"
               className="m-auto   h-[30vh] md:h-[36h] block"
-              src="https://m.media-amazon.com/images/I/61cCf94xIEL._AC_UY218_.jpg"
+              src={product.img}
             />
             <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 class="text-sm title-font text-gray-500 tracking-widest">
-               Billion Dollar company!
+                Billion Dollar company!
               </h2>
               <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
-               #Billion Dollar Brand
+                {product.title} ({product.size}/{product.color})
               </h1>
-              <div class="flex mb-4">
+
+
+
+              {/* <div class="flex mb-4">
                 <span class="flex items-center">
                   <svg
                     fill="currentColor"
@@ -149,14 +157,13 @@ const Post = ({addToCart}) => {
                     </svg>
                   </a>
                 </span>
-              </div>
+              </div> */}
+
+
+
+
               <p class="leading-relaxed">
-                Fam locavore kickstarter distillery.Mixtape chillwave tumeric
-                sriracha taximy chia microdosing tilde DIY.XOXO fam indxgo
-                juiceramps cornhole raw denim forage brooklyn.Everyday carry +1
-                seitan poutine tumeric.Gastropub blue bottle austin listicle
-                pour-over, neutra jean shorts keytar banjo tattooed umami
-                cardigan.
+                {product.desc}
               </p>
               <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
                 <div class="flex">
@@ -200,13 +207,13 @@ const Post = ({addToCart}) => {
                 </button>
 
                 <button
-                onClick = {()=> {addToCart(slug,1,499,'wear the code', 'xl', 'red')}}
-                class=" flex ml-4 text-white bg-pink-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">
+                  onClick={() => { addToCart(slug, 1, 499, product.title, product.size, product.color) }}
+                  class=" flex ml-4 text-white bg-pink-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">
                   Add to Cart
                 </button>
 
 
-                <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                {/* <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                   <svg
                     fill="currentColor"
                     stroke-linecap="round"
@@ -217,7 +224,9 @@ const Post = ({addToCart}) => {
                   >
                     <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
                   </svg>
-                </button>
+                </button> */}
+
+
               </div>
 
               {/* pincode */}
@@ -255,5 +264,35 @@ const Post = ({addToCart}) => {
     </>
   );
 };
-
 export default Post;
+
+
+export async function getServerSideProps(context) {
+  if (!mongoose.connections[0].readyState) {
+    await mongoose.connect(process.env.MONGO_URI);
+  }
+  let product = await Product.findOne({ slug: context.query.slug });
+  let variants = await Product.find({ title: product.title })
+  let colorSizeSlug = {} // {red: {XL:{slug:'wear-the-code-xl'}}}
+
+  for (let item of variants) {
+    if (Object.keys(colorSizeSlug).includes(item.color)) {
+      colorSizeSlug[item.color][item.size] = { slug: item.slug }
+    } else {
+      colorSizeSlug[item.color] = {}
+      colorSizeSlug[item.color][item.size] = { slug: item.slug }
+    }
+  }
+
+
+
+  // console.log(products)
+  return {
+    props: {
+      product: JSON.parse(JSON.stringify(product)),
+      variants: JSON.parse(JSON.stringify(colorSizeSlug))
+    }, // will be passed to the page component as props
+  };
+}
+
+

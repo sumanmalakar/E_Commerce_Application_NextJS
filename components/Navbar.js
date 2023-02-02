@@ -136,7 +136,7 @@ export default function Navbar({
               <>
                 <li key={k}>
                   <div className="item flex my-5">
-                    <div className="w-2/3 font-semibold">{cart[k].name}</div>
+                    <div className="w-2/3 font-semibold">{cart[k].name} ({cart[k].size}/{cart[k].varient})</div>
                     <div className="flex justify-center items-center w-1/3 font-semibold text-lg">
                       {/* decrease qty */}
 
