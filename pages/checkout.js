@@ -146,6 +146,7 @@ export default function checkout({ cart, addToCart, removeFromCart, clearCart, s
                     <div className="item flex my-5">
                       <div className="mx-2 font-semibold text-xl">
                         {cart[k].name}
+                        ({cart[k].size}/{cart[k].varient})
                       </div>
                       <div className="flex justify-center items-center w-1/3 font-semibold text-3xl">
                         {/* decrease qty */}

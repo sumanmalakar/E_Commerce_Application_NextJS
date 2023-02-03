@@ -111,7 +111,7 @@ export default function Navbar({
         //  transition-transform ${Object.keys(cart).length !== 0 ? 'translate-x-0' : 'translate-x-full'}
         //  z-10`}
 
-        className="w-72 h-[100vh] sideCart absolute top-0 right-0 bg-pink-100 px-8 py-10 text-black 
+        className="w-72 h-[100vh] sideCart overflow-y-scroll absolute top-0 right-0 bg-pink-100 px-8 py-10 text-black 
         transform
          transition-transform  translate-x-full
          z-10"
@@ -187,7 +187,7 @@ export default function Navbar({
         <div className="flex">
           <Link href={"/checkout"}>
             {" "}
-            <button class="flex text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm mx-2">
+            <button class="flex text-white bg-pink-500 border-0 py-2 px-1 focus:outline-none hover:bg-pink-600 rounded text-sm mx-2">
               <BsFillBagCheckFill className="m-1" />
               CheckOut
             </button>

@@ -6,7 +6,7 @@ import Product from "../../models/Product";
 import mongoose from "mongoose";
 
 
-const Post = ({ addToCart, product, variants }) => {
+const Post = ({buyNow, addToCart, product, variants }) => {
 
   console.log(product, variants);
 
@@ -39,6 +39,7 @@ const Post = ({ addToCart, product, variants }) => {
     setPin(e.target.value);
     // console.log(pin);
   };
+
 
   return (
     <>
@@ -202,7 +203,9 @@ const Post = ({ addToCart, product, variants }) => {
                   ₹58.00
                 </span>
 
-                <button class=" flex ml-8 text-white bg-pink-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">
+                <button 
+                  onClick={() => { buyNow(slug, 1, 499, product.title, product.size, product.color)}}
+                 class=" flex ml-8 text-white bg-pink-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">
                   Buy Now
                 </button>
 

@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import '../styles/globals.css'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -7,10 +8,10 @@ import { useState, useEffect } from 'react'
 export default function App({ Component, pageProps }) {
 
   const [cart, setCart] = useState({});
-  const [subTotal, setSubTotal] = useState(0)
+  const [subTotal, setSubTotal] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
-
     try {
 
       // if cart is already present in localStorage
@@ -31,16 +32,13 @@ export default function App({ Component, pageProps }) {
   // save cart's to localStorage and calculate subtotal
   const saveCart = (myCart) => {
     localStorage.setItem("cart", JSON.stringify(myCart));
-
     // calculating sub total
     let subt = 0;
     let keys = Object.keys(myCart);
     for (let i = 0; i < keys.length; i++) {
       subt += myCart[keys[i]].price * myCart[keys[i]].qty;
-    } 
-
+    }
     setSubTotal(subt);
-
   }
 
   // adding a new item to the cart
@@ -78,10 +76,20 @@ export default function App({ Component, pageProps }) {
 
   }
 
+  const buyNow = (itemCode, qty, price, name, size, varient) => {
+    let newCart = {itemCode:{ qty: 1, price, name, size, varient }};
+
+    setCart(newCart);
+    saveCart(newCart);
+    console.log(newCart)
+
+    router.push('/checkout')
+  }
+
+
   // clear all the item from cart
   const clearCart = () => {
     setCart({})
-    saveCart({})
     console.log("Cart is cleard!")
   }
 
@@ -96,6 +104,7 @@ export default function App({ Component, pageProps }) {
     />
 
     <Component
+      buyNow={buyNow}
       cart={cart}
       addToCart={addToCart}
       removeFromCart={removeFromCart}
