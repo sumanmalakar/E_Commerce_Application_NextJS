@@ -3,6 +3,7 @@ import '../styles/globals.css'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useState, useEffect } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
 
 
 export default function App({ Component, pageProps }) {
@@ -55,6 +56,17 @@ export default function App({ Component, pageProps }) {
     // store cart in local storage
     saveCart(newCart)
 
+    toast.success("Your item is added on Cart..!", {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+
   }
 
   // remove particular item from cart
@@ -90,7 +102,20 @@ export default function App({ Component, pageProps }) {
   // clear all the item from cart
   const clearCart = () => {
     setCart({})
-    console.log("Cart is cleard!")
+    saveCart({});
+
+    console.log("Cart is cleard!");
+
+    toast.warn('Cart is Cleared!', {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   }
 
 
