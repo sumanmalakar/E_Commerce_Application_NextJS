@@ -4,9 +4,12 @@ import { useState } from "react";
 import Product from "../../models/Product";
 // import { json } from "stream/consumers";
 import mongoose from "mongoose";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Post = ({buyNow, addToCart, product, variants }) => {
+
 
   console.log(product, variants);
 
@@ -17,6 +20,9 @@ const Post = ({buyNow, addToCart, product, variants }) => {
   const [service, setService] = useState();
 
   const checkServiceability = async (e) => {
+ 
+  
+
     e.preventDefault();
     // let pins = await fetch('http://localhost:3000/api/pincode')
 
@@ -29,9 +35,31 @@ const Post = ({buyNow, addToCart, product, variants }) => {
     if (pinJson.includes(parseInt(pin))) {
       setService(true);
       // console.log(service);
+
+      toast.success("Your Pincode is Serviceable!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+
     } else {
       setService(false);
       // console.log(service);
+      toast.warn("Sorry Your Pincode is not Serviceable!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
   };
 
@@ -44,6 +72,18 @@ const Post = ({buyNow, addToCart, product, variants }) => {
   return (
     <>
       <section className="text-gray-600 body-font overflow-hidden">
+        <ToastContainer 
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+         />
         <div className="container px-5 py-24 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
             <img
