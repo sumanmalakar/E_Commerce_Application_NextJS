@@ -38,8 +38,7 @@ export default function Login() {
     let response = await res.json()
     console.log(response);
 
-    setEmail('');
-    setPassword('');
+
 
     if (response.success) {
 
@@ -47,18 +46,21 @@ export default function Login() {
         position: "top-center",
         autoClose: 1500,
         hideProgressBar: false,
-        closeOnClick: true, 
+        closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
         theme: "dark",
       });
 
+      setEmail('');
+      setPassword('');
+
       setTimeout(() => {
         router.push('/');
-        
+
       }, 2000);
-      
+
 
 
     } else {
@@ -143,7 +145,7 @@ export default function Login() {
                   <div className="flex items-center justify-between">
                     <Link href={"/forgot"} className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</Link>
                   </div>
-                    <button type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
+                  <button type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
 
                   <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                     Don’t have an account yet? <Link href={'/signup'} className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</Link>
