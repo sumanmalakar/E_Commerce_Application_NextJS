@@ -4,13 +4,16 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/router';
 
 
 
 export default function Signup() {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const router = useRouter();
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleChange = (e) => {
     if (e.target.name == 'name') {
@@ -21,10 +24,13 @@ export default function Signup() {
     }
     else if (e.target.name == 'password') {
       setPassword(e.target.value)
-    }
+    } 
   }
 
   const handleSubmit = async (e) => {
+   console.log("submited!")
+   
+
     e.preventDefault();
     const data = { name, email, password };
 
@@ -37,14 +43,24 @@ export default function Signup() {
     })
     let response = await res.json()
     console.log(response);
+  
 
-    setEmail('');
-    setName('');
-    setPassword('');
+if(response.userExist){
+  toast.warn(response.msg, {
+    position: "top-center",
+    autoClose: 1000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
+} else if(response.success){
 
     toast.success('Your account has been created...!', {
       position: "top-center",
-      autoClose: 1500,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -53,7 +69,30 @@ export default function Signup() {
       theme: "dark",
     });
 
-  }
+  setTimeout(() => {
+    router.push('/login');
+
+  }, 2000);
+
+
+
+} else {
+  toast.error(response.error, {
+    position: "top-center",
+    autoClose: 1000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
+}
+
+     
+  } 
+
+  
 
 
 

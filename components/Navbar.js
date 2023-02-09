@@ -83,8 +83,8 @@ export default function Navbar({
 
         {/* Shopping Cart */}
         {Object.keys(cart).length !== 0 ? (
-          <div class="inline-flex relative w-fit">
-            <div class="absolute inline-block top-0 right-0 bottom-auto left-auto translate-x-2/4 -translate-y-1/2 rotate-0 skew-x-0 skew-y-0 scale-x-100 scale-y-100 py-1 px-2.5 text-xs leading-none text-center whitespace-nowrap align-baseline font-bold bg-violet-900 text-white rounded-full z-10">
+          <div className="inline-flex relative w-fit">
+            <div className="absolute inline-block top-0 right-0 bottom-auto left-auto translate-x-2/4 -translate-y-1/2 rotate-0 skew-x-0 skew-y-0 scale-x-100 scale-y-100 py-1 px-2.5 text-xs leading-none text-center whitespace-nowrap align-baseline font-bold bg-violet-900 text-white rounded-full z-10">
               {Object.keys(cart).length}
             </div>
             <AiOutlineShoppingCart
@@ -93,12 +93,12 @@ export default function Navbar({
             />
           </div>
         ) : (
-          
-            <AiOutlineShoppingCart
-          onClick={toggleCart}
-          className="text-3xl md:text-2xl"
-        /> 
-          
+
+          <AiOutlineShoppingCart
+            onClick={toggleCart}
+            className="text-3xl md:text-2xl"
+          />
+
         )}
       </div>
 
@@ -123,7 +123,7 @@ export default function Navbar({
         >
           <AiFillCloseCircle />
         </span>
-        <ol className="list-decimal font-semibold py-2">
+        <div className="list-decimal font-semibold py-2">
           {/* if cart is empty than so some text */}
           {Object.keys(cart).length === 0 && (
             <div className="text-center m-4 font-semibold">
@@ -133,50 +133,52 @@ export default function Navbar({
 
           {Object.keys(cart).map((k) => {
             return (
-              <>
-                <li key={k}>
-                  <div className="item flex my-5">
-                    <div className="w-2/3 font-semibold">{cart[k].name} ({cart[k].size}/{cart[k].varient})</div>
-                    <div className="flex justify-center items-center w-1/3 font-semibold text-lg">
-                      {/* decrease qty */}
+              <div
+                // key={Math.floor((Math.random() * 1000) + 1)}
+              key={k}
+              >
+                <div className="item flex my-5">
+                  <div className="w-2/3 font-semibold">{cart[k].name} ({cart[k].size}/{cart[k].varient})</div>
+                  <div className="flex justify-center items-center w-1/3 font-semibold text-lg">
+                    {/* decrease qty */}
 
-                      <AiFillMinusCircle
-                        onClick={() =>
-                          removeFromCart(
-                            k,
-                            1,
-                            cart[k].price,
-                            cart[k].name,
-                            cart[k].size,
-                            cart[k].variant
-                          )
-                        }
-                        className="text-pink-500 cursor-pointer"
-                      />
-                      <span className="mx-3 text-sm">{cart[k].qty}</span>
+                    <AiFillMinusCircle
+                      onClick={() =>
+                        removeFromCart(
+                          k,
+                          1,
+                          cart[k].price,
+                          cart[k].name,
+                          cart[k].size,
+                          cart[k].variant
+                        )
+                      }
+                      className="text-pink-500 cursor-pointer"
+                    />
+                    <span className="mx-3 text-sm">{cart[k].qty}</span>
 
-                      {/* increase qty */}
+                    {/* increase qty */}
 
-                      <AiFillPlusCircle
-                        onClick={() =>
-                          addToCart(
-                            k,
-                            1,
-                            cart[k].price,
-                            cart[k].name,
-                            cart[k].size,
-                            cart[k].variant
-                          )
-                        }
-                        className="text-pink-500 cursor-pointer"
-                      />
-                    </div>
+                    <AiFillPlusCircle
+                      onClick={() =>
+                        addToCart(
+                          k,
+                          1,
+                          cart[k].price,
+                          cart[k].name,
+                          cart[k].size,
+                          cart[k].variant
+                        )
+                      }
+                      className="text-pink-500 cursor-pointer"
+                    />
                   </div>
-                </li>
-              </>
+                </div>
+              </div>
+
             );
           })}
-        </ol>
+        </div>
 
         {/* subTotal */}
 
@@ -187,14 +189,14 @@ export default function Navbar({
         <div className="flex">
           <Link href={"/checkout"}>
             {" "}
-            <button class="flex text-white bg-pink-500 border-0 py-2 px-1 focus:outline-none hover:bg-pink-600 rounded text-sm mx-2">
+            <button className="flex text-white bg-pink-500 border-0 py-2 px-1 focus:outline-none hover:bg-pink-600 rounded text-sm mx-2">
               <BsFillBagCheckFill className="m-1" />
               CheckOut
             </button>
           </Link>
           <button
             onClick={clearCart}
-            class="flex text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm mx-2"
+            className="flex text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm mx-2"
           >
             Clear Cart
           </button>
