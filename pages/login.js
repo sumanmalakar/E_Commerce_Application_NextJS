@@ -28,7 +28,7 @@ export default function Login() {
 
     const data = { email, password };
 
-    let res = await fetch('http://localhost:3000/api/login', {
+    let res = await fetch('/api/login', {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
