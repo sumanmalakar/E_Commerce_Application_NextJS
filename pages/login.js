@@ -41,6 +41,8 @@ export default function Login() {
 
 
     if (response.success) {
+       
+     localStorage.setItem('token', response.token); 
 
       toast.success('Your are successfully logged in..!', {
         position: "top-center",
