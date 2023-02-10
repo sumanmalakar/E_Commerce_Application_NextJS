@@ -11,7 +11,7 @@ const handler = async (req, res) => {
     let user = await User.findOne({ "email": req.body.email })
 
     const bytes = CryptoJS.AES.decrypt(user.password, 'secret123');
-    let decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+    let decryptedData = bytes.toString(CryptoJS.enc.Utf8);
 
     if (user) {
       // console.log(user.password)
@@ -24,7 +24,7 @@ const handler = async (req, res) => {
         res.status(200).json({ success: false, error: "Invailid Credentials" })
 
       }
-    } else {
+    } else  {
       res.status(200).json({ success: false, error: "No User found!" })
     }
   } else {

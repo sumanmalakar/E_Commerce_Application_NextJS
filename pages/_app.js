@@ -5,11 +5,16 @@ import Footer from '../components/Footer'
 import { useState, useEffect } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 
+// MONGO_URI = mongodb+srv://suman:suman8896@cluster0.dkbfbbo.mongodb.net/?retryWrites=true&w=majority 
+// MONGO_URI = mongodb://localhost:27017
+
 
 export default function App({ Component, pageProps }) {
 
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
+  const [user, setUser] = useState({ value: null });
+  const [key, setKey] = useState(0);
   const router = useRouter();
 
   useEffect(() => {
@@ -26,7 +31,13 @@ export default function App({ Component, pageProps }) {
       localStorage.clear();
     }
 
-    // console.log(Object.keys(cart))
+
+    // checking for login token
+    const token = localStorage.getItem('token')
+    if (token) {
+      setUser({ value: token })
+      setKey(Math.random());
+    }
 
   }, [])
 
@@ -89,7 +100,7 @@ export default function App({ Component, pageProps }) {
   }
 
   const buyNow = (itemCode, qty, price, name, size, varient) => {
-    let newCart = {itemCode:{ qty: 1, price, name, size, varient }};
+    let newCart = { itemCode: { qty: 1, price, name, size, varient } };
 
     setCart(newCart);
     saveCart(newCart);
@@ -121,6 +132,8 @@ export default function App({ Component, pageProps }) {
 
   return (<>
     <Navbar
+      user={user}
+      key={key}
       cart={cart}
       addToCart={addToCart}
       removeFromCart={removeFromCart}
