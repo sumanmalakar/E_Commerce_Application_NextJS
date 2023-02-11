@@ -16,28 +16,28 @@ export default function hoodies({ products }) {
 {Object.keys(products).length === 0 && <h1>Sorry all the Hoodies are out of stock new are comming soon..</h1> }
             {Object.keys(products).map((item) => {
               return (
-                <>
+                
                   <div
                     key={products[item]._id}
-                    class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5"
+                    className="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5"
                   >
                     <Link
                       href={`/product/${products[item].slug}`}
-                      class="block relative  rounded overflow-hidden "
+                      className="block relative  rounded overflow-hidden "
                     >
                       <img
                         alt="ecommerce"
-                        class="m-auto   h-[30vh] md:h-[36h] block"
+                        className="m-auto   h-[30vh] md:h-[36h] block"
                         src={products[item].img}
                       />
-                      <div class="mt-4 text-center">
-                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
+                      <div className="mt-4 text-center">
+                        <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
                           Hoodies
                         </h3>
-                        <h2 class="text-gray-900 title-font text-lg font-medium">
+                        <h2 className="text-gray-900 title-font text-lg font-medium">
                           {products[item].title}
                         </h2>
-                        <p class="mt-1">{products[item].price}</p>
+                        <p className="mt-1">{products[item].price}</p>
 
                         <div className="mt-1">
                           {products[item].size.includes('S') && <span className="border border-gray-300 mx-2">S </span>}
@@ -63,7 +63,7 @@ export default function hoodies({ products }) {
                     </Link>
 
                   </div>
-                </>
+               
               );
             })}
           </div>

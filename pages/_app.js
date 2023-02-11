@@ -18,6 +18,7 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
+    console.log("useEffect is running")
     try {
 
       // if cart is already present in localStorage
@@ -38,8 +39,8 @@ export default function App({ Component, pageProps }) {
       setUser({ value: token })
       setKey(Math.random());
     }
-
-  }, [])
+console.log(router.query);
+  }, [router.query])
 
   // save cart's to localStorage and calculate subtotal
   const saveCart = (myCart) => {
@@ -129,9 +130,25 @@ export default function App({ Component, pageProps }) {
     });
   }
 
+  // logout - remove token from localstorge
+  const logout = () =>{
+    localStorage.removeItem('token');
+    setUser({value:null});
+    toast.success("Successfully logOut..!", {
+      position: "top-center",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  }
 
   return (<>
     <Navbar
+    logout={logout}
       user={user}
       key={key}
       cart={cart}
@@ -139,6 +156,7 @@ export default function App({ Component, pageProps }) {
       removeFromCart={removeFromCart}
       clearCart={clearCart}
       subTotal={subTotal}
+  
     />
 
     <Component
