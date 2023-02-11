@@ -1,6 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/jsx-no-undef */
 import Link from 'next/link'
-import React from "react";
+import React , {useEffect} from "react";
+import { useRouter } from 'next/router'
+
 
 import {
   AiOutlineShoppingCart,
@@ -11,8 +15,16 @@ import {
 
 import { BsFillBagCheckFill } from "react-icons/bs";
 
-export default function checkout({ cart, addToCart, removeFromCart, clearCart, subTotal }) {
-  return (
+export default function checkout({  cart, addToCart, removeFromCart, clearCart, subTotal }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!localStorage.getItem('token')) {
+      router.push('/');
+    }
+  }, [])
+
+  return ( 
     <div className="container px-2 sm:m-auto ">
       <div className="mt-20">
         <h1 className="font-bold text-center text-3xl">CheckOut</h1>

@@ -15,6 +15,7 @@ import { BsFillBagCheckFill } from "react-icons/bs";
 import { MdAccountCircle } from "react-icons/md";
 
 export default function Navbar({
+  authenticate,
   user,
   logout,
   cart,
@@ -105,7 +106,7 @@ export default function Navbar({
                     My Account
                   </li>{" "}
                 </Link>
-                <Link href={"/order"}>
+                <Link href={"/orders"}>
                   {" "}
                   <li className="py-1 text-black text-md font-bold hover:bg-blue-600 hover:text-white">
                     Orders
@@ -243,14 +244,16 @@ export default function Navbar({
             <span className="font-bold">SubTotal: ₹{subTotal}</span>
           </div>
 
-          <div className="flex">
-            <Link href={"/checkout"}>
+          <div className="flex justify-center items-center">
+           {authenticate && <Link href={"/checkout"}>
               {" "}
               <button className="flex text-white bg-pink-500 border-0 py-2 px-1 focus:outline-none hover:bg-pink-600 rounded text-sm mx-2">
                 <BsFillBagCheckFill className="m-1" />
                 CheckOut
               </button>
             </Link>
+}
+
             <button
               onClick={clearCart}
               className="flex text-white bg-pink-500 border-0 py-2 px-2 focus:outline-none hover:bg-pink-600 rounded text-sm mx-2"

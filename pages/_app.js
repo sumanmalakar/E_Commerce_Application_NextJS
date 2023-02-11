@@ -17,7 +17,8 @@ export default function App({ Component, pageProps }) {
   const [subTotal, setSubTotal] = useState(0);
   const [user, setUser] = useState({ value: null });
   const [key, setKey] = useState(0);
-  const [progress, setProgress] = useState(0)
+  const [progress, setProgress] = useState(0);
+  const [authenticate, setAuthenticate] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -52,6 +53,11 @@ export default function App({ Component, pageProps }) {
     if (token) {
       setUser({ value: token })
       setKey(Math.random());
+
+      setAuthenticate(true);
+    }else{
+      setAuthenticate(false);
+      
     }
     console.log(router.query);
   }, [router.query])
@@ -97,20 +103,24 @@ export default function App({ Component, pageProps }) {
 
   // remove particular item from cart
   const removeFromCart = (itemCode, qty, price, name, size, varient) => {
-    let newCart = cart;
 
-    if (itemCode in cart) {
-      newCart[itemCode].qty = cart[itemCode].qty - qty;
+    if(authenticate){
+      let newCart = cart;
+  
+      if (itemCode in cart) {
+        newCart[itemCode].qty = cart[itemCode].qty - qty;
+      }
+  
+      // if cart qty is already zero
+      if (newCart[itemCode]["qty"] <= 0) {
+        delete newCart[itemCode]
+      }
+  
+      setCart(newCart);
+      // store cart in local storage
+      saveCart(newCart)
+
     }
-
-    // if cart qty is already zero
-    if (newCart[itemCode]["qty"] <= 0) {
-      delete newCart[itemCode]
-    }
-
-    setCart(newCart);
-    // store cart in local storage
-    saveCart(newCart)
 
   }
 
@@ -121,27 +131,37 @@ export default function App({ Component, pageProps }) {
     saveCart(newCart);
     console.log(newCart)
 
+    if(!authenticate){
+         router.push('/login');
+    }
+
     router.push('/checkout')
   }
 
 
   // clear all the item from cart
   const clearCart = () => {
-    setCart({})
-    saveCart({});
+    if (!authenticate) {
+      router.push('/login');
+    }else{
+      setCart({})
+      saveCart({});
+  
+      console.log("Cart is cleard!");
+  
+      toast.warn('Cart is Cleared!', {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
 
-    console.log("Cart is cleard!");
-
-    toast.warn('Cart is Cleared!', {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+    
   }
 
   // logout - remove token from localstorge
@@ -175,6 +195,7 @@ export default function App({ Component, pageProps }) {
     />
 
     <Navbar
+      authenticate={authenticate}
       logout={logout}
       user={user}
       key={key}

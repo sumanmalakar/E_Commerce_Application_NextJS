@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRouter } from "next/router";
 import { useState } from "react";
+import mongoose from "mongoose";
 import Product from "../../models/Product";
 // import { json } from "stream/consumers";
-import mongoose from "mongoose";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -326,9 +326,6 @@ export async function getServerSideProps(context) {
       colorSizeSlug[item.color][item.size] = { slug: item.slug }
     }
   }
-
-
-
   // console.log(products)
   return {
     props: {
