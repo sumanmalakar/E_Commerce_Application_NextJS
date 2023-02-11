@@ -166,9 +166,10 @@ export default function App({ Component, pageProps }) {
 
     {/* react loading bar... */}
     <LoadingBar
-      color='#8F00FF'
+      // color='#8F00FF'
+      color='#00008B'
       progress={progress}
-      height={4}
+      height={5}
       waitingTime={400}
       onLoaderFinished={() => setProgress(0)}
     />
