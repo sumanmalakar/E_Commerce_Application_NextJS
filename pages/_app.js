@@ -144,6 +144,8 @@ console.log(router.query);
       progress: undefined,
       theme: "dark",
     });
+
+    router.push('/');
   }
 
   return (<>
