@@ -1,8 +1,21 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @next/next/no-img-element */
-import React from 'react'
+import {useEffect} from 'react'
 import Link  from 'next/link'
+import { useRouter } from 'next/router'
 
-export default function forgot() {
+
+export default function Forgot() {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      router.push('/');
+    }
+  }, [])
+
+
   return (
     <div className="pt-[4rem] sm:pt-5 lg:pt-9">
       <section class="bg-gray-50 dark:bg-pink-900">

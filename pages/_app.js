@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useRouter } from 'next/router'
 import '../styles/globals.css'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useState, useEffect } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
+import LoadingBar from 'react-top-loading-bar'
 
 // MONGO_URI = mongodb+srv://suman:suman8896@cluster0.dkbfbbo.mongodb.net/?retryWrites=true&w=majority 
 // MONGO_URI = mongodb://localhost:27017
@@ -15,10 +17,22 @@ export default function App({ Component, pageProps }) {
   const [subTotal, setSubTotal] = useState(0);
   const [user, setUser] = useState({ value: null });
   const [key, setKey] = useState(0);
+  const [progress, setProgress] = useState(0)
   const router = useRouter();
 
   useEffect(() => {
     console.log("useEffect is running")
+
+    router.events.on('routeChangeStart', () => {
+      setProgress(40)
+    })
+
+    router.events.on('routeChangeComplete', () => {
+      setProgress(100)
+    })
+
+
+
     try {
 
       // if cart is already present in localStorage
@@ -39,7 +53,7 @@ export default function App({ Component, pageProps }) {
       setUser({ value: token })
       setKey(Math.random());
     }
-console.log(router.query);
+    console.log(router.query);
   }, [router.query])
 
   // save cart's to localStorage and calculate subtotal
@@ -131,9 +145,9 @@ console.log(router.query);
   }
 
   // logout - remove token from localstorge
-  const logout = () =>{
+  const logout = () => {
     localStorage.removeItem('token');
-    setUser({value:null});
+    setUser({ value: null });
     toast.success("Successfully logOut..!", {
       position: "top-center",
       autoClose: 1500,
@@ -149,8 +163,18 @@ console.log(router.query);
   }
 
   return (<>
+
+    {/* react loading bar... */}
+    <LoadingBar
+      color='#8F00FF'
+      progress={progress}
+      height={4}
+      waitingTime={400}
+      onLoaderFinished={() => setProgress(0)}
+    />
+
     <Navbar
-    logout={logout}
+      logout={logout}
       user={user}
       key={key}
       cart={cart}
@@ -158,7 +182,7 @@ console.log(router.query);
       removeFromCart={removeFromCart}
       clearCart={clearCart}
       subTotal={subTotal}
-  
+
     />
 
     <Component

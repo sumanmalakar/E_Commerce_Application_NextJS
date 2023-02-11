@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable @next/next/no-img-element */
 
@@ -13,6 +14,14 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+
+  useEffect(() => {
+  if(localStorage.getItem('token')){
+    router.push('/');
+  }
+}, [])
+
+  
   const handleChange = (e) => {
     if (e.target.name === 'email') {
       setEmail(e.target.value)
