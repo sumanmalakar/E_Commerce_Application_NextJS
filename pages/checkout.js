@@ -108,7 +108,7 @@ export default function checkout({ cart, addToCart, removeFromCart, clearCart, s
       // image: "https://avatars.githubusercontent.com/u/25058652?v=4",
       // order_id: order.id,
       order_id: response.id,
-      // callback_url: "/api/paymentvarification",
+      callback_url: "/api/paymentvarification",
       prefill: {
         name: "Gaurav Kumar",
         email: "gaurav.kumar@example.com",
@@ -140,15 +140,19 @@ export default function checkout({ cart, addToCart, removeFromCart, clearCart, s
   }, [])
 
   return (
+    <>
+     <Script type="application/javascript" src="https://checkout.razorpay.com/v1/checkout.js" crossorigin="anonymous"/>
+
     <div className="container px-2 sm:m-auto ">
 
       <Head>
         {/* <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
 
         <Script type="application/javascript" src={`${process.env.NEXT_PUBLIC_PAYTM_HOST}/merchantpgpui/checkoutjs/merchants/${process.env.NEXT_PUBLIC_PAYTM_MID}.js`} crossorigin="anonymous"></Script> */}
-        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
+        {/* <Script type="application/javascript" src="https://checkout.razorpay.com/v1/checkout.js" crossorigin="anonymous"></Script> */}
 
+        {/* <script src="https://checkout.razorpay.com/v1/checkout.js"></script> */}
       </Head>
 
       <div className="mt-20">
@@ -347,5 +351,6 @@ export default function checkout({ cart, addToCart, removeFromCart, clearCart, s
         </div>
       </div>
     </div>
+    </>
   );
 }

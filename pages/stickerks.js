@@ -5,7 +5,7 @@ import Product from "../models/Product";
 import mongoose from "mongoose";
 
 export default function stickerks({ products }) {
-  console.log(products);
+  // console.log(products);
 
   return (
     <div>
@@ -16,54 +16,54 @@ export default function stickerks({ products }) {
             {Object.keys(products).length === 0 && <h1>Sorry all the stickeries are out of stock new are comming soon..</h1>}
             {Object.keys(products).map((item) => {
               return (
-                <>
-                  <div
-                    key={products[item]._id}
-                    class="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5"
+
+                <div
+                  key={products[item]._id}
+                  className="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg m-5"
+                >
+                  <Link
+                    href={`/product/${products[item].slug}`}
+                    className="block relative  rounded overflow-hidden "
                   >
-                    <Link
-                      href={`/product/${products[item].slug}`}
-                      class="block relative  rounded overflow-hidden "
-                    >
-                      <img
-                        alt="ecommerce"
-                        class="m-auto   h-[30vh] md:h-[36h] block"
-                        src={products[item].img}
-                      />
-                      <div class="mt-4 text-center">
-                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                          stickeries
-                        </h3>
-                        <h2 class="text-gray-900 title-font text-lg font-medium">
-                          {products[item].title}
-                        </h2>
-                        <p class="mt-1">{products[item].price}</p>
+                    <img
+                      alt="ecommerce"
+                      className="m-auto   h-[30vh] md:h-[36h] block"
+                      src={products[item].img}
+                    />
+                    <div className="mt-4 text-center">
+                      <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
+                        stickeries
+                      </h3>
+                      <h2 className="text-gray-900 title-font text-lg font-medium">
+                        {products[item].title}
+                      </h2>
+                      <p className="mt-1">{products[item].price}</p>
 
-                        <div className="mt-1">
-                          {products[item].size.includes('S') && <span className="border border-gray-300 mx-2">S </span>}
-                          {products[item].size.includes('M') && <span className="border border-gray-300 mx-2">M </span>}
-                          {products[item].size.includes('L') && <span className="border border-gray-300 mx-2">L </span>}
-                          {products[item].size.includes('XL') && <span className="border border-gray-300 mx-2">XL </span>}
-                          {products[item].size.includes('XXL') && <span className="border border-gray-300 mx-2">XXL </span>}
-
-                        </div>
-
-
-                        <div className="mt-1">
-                          {products[item].color.includes('red') && <button className="border-2 border-gray-300 ml-1 bg-red-700 rounded-full w-6 h-6 focus:outline-none"></button>}
-                          {products[item].color.includes('blue') && <button className="border-2 border-gray-300 ml-1 bg-blue-700 rounded-full w-6 h-6 focus:outline-none"></button>}
-                          {products[item].color.includes('black') && <button className="border-2 border-gray-300 ml-1 bg-black rounded-full w-6 h-6 focus:outline-none"></button>}
-                          {products[item].color.includes('yellow') && <button className="border-2 border-gray-300 ml-1 bg-yellow-700 rounded-full w-6 h-6 focus:outline-none"></button>}
-                          {products[item].color.includes('purple') && <button className="border-2 border-gray-300 ml-1 bg-purple-700 rounded-full w-6 h-6 focus:outline-none"></button>}
-
-
-                        </div>
+                      <div className="mt-1">
+                        {products[item].size.includes('S') && <span className="border border-gray-300 mx-2">S </span>}
+                        {products[item].size.includes('M') && <span className="border border-gray-300 mx-2">M </span>}
+                        {products[item].size.includes('L') && <span className="border border-gray-300 mx-2">L </span>}
+                        {products[item].size.includes('XL') && <span className="border border-gray-300 mx-2">XL </span>}
+                        {products[item].size.includes('XXL') && <span className="border border-gray-300 mx-2">XXL </span>}
 
                       </div>
-                    </Link>
 
-                  </div>
-                </>
+
+                      <div className="mt-1">
+                        {products[item].color.includes('red') && <button className="border-2 border-gray-300 ml-1 bg-red-700 rounded-full w-6 h-6 focus:outline-none"></button>}
+                        {products[item].color.includes('blue') && <button className="border-2 border-gray-300 ml-1 bg-blue-700 rounded-full w-6 h-6 focus:outline-none"></button>}
+                        {products[item].color.includes('black') && <button className="border-2 border-gray-300 ml-1 bg-black rounded-full w-6 h-6 focus:outline-none"></button>}
+                        {products[item].color.includes('yellow') && <button className="border-2 border-gray-300 ml-1 bg-yellow-700 rounded-full w-6 h-6 focus:outline-none"></button>}
+                        {products[item].color.includes('purple') && <button className="border-2 border-gray-300 ml-1 bg-purple-700 rounded-full w-6 h-6 focus:outline-none"></button>}
+
+
+                      </div>
+
+                    </div>
+                  </Link>
+
+                </div>
+
               );
             })}
           </div>

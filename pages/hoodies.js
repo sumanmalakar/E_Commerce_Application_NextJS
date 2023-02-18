@@ -5,7 +5,7 @@ import Product from "../models/Product";
 import mongoose from "mongoose";
 
 export default function hoodies({ products }) {
-  console.log(products);
+  // console.log(products);
 
   return (
     <div>

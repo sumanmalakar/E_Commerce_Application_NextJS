@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Post = ({buyNow, addToCart, product, variants }) => {
 
 
-  console.log(product, variants);
+  // console.log(product, variants);
 
   const router = useRouter();
   const { slug } = router.query;
@@ -30,7 +30,7 @@ const Post = ({buyNow, addToCart, product, variants }) => {
     let pinJson = await pins.json();
 
 
-    console.log(pinJson, pin);
+    // console.log(pinJson, pin);
 
     if (pinJson.includes(parseInt(pin))) {
       setService(true);

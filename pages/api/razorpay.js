@@ -42,6 +42,7 @@ export default async function handler(req, res) {
         success: true,
         response,
       });
+      //  res.redirect('/order',200);
       // console.log(key_id)
 
     } catch (err) {

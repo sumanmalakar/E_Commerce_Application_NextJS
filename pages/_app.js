@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    console.log("useEffect is running")
+    // console.log("useEffect is running")
 
     router.events.on('routeChangeStart', () => {
       setProgress(40)
@@ -59,7 +59,7 @@ export default function App({ Component, pageProps }) {
       setAuthenticate(false);
       
     }
-    console.log(router.query);
+    // console.log(router.query);
   }, [router.query])
 
   // save cart's to localStorage and calculate subtotal
@@ -129,7 +129,7 @@ export default function App({ Component, pageProps }) {
 
     setCart(newCart);
     saveCart(newCart);
-    console.log(newCart)
+    // console.log(newCart)
 
     if(!authenticate){
          router.push('/login');
@@ -147,7 +147,7 @@ export default function App({ Component, pageProps }) {
       setCart({})
       saveCart({});
   
-      console.log("Cart is cleard!");
+      // console.log("Cart is cleard!");
   
       toast.warn('Cart is Cleared!', {
         position: "top-right",
