@@ -124,10 +124,15 @@ export default function checkout({ cart, addToCart, removeFromCart, clearCart, s
 
     const razor = new window.Razorpay(options);
     razor.open();
-
-    if(response.success){
+    
+     setTimeout(() => {
+         if(response.success){
       router.push('/order')
     }
+
+      }, 6000);
+
+  
 
 
   };
