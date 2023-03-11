@@ -130,7 +130,7 @@ export default function checkout({ cart, addToCart, removeFromCart, clearCart, s
       router.push('/order')
     }
 
-      }, 6000);
+      }, 30000);
 
   
 
