@@ -108,7 +108,7 @@ export default function checkout({ cart, addToCart, removeFromCart, clearCart, s
       // image: "https://avatars.githubusercontent.com/u/25058652?v=4",
       // order_id: order.id,
       order_id: response.id,
-      callback_url: "/api/paymentvarification",
+     // callback_url: "/api/paymentvarification",
       prefill: {
         name: "Gaurav Kumar",
         email: "gaurav.kumar@example.com",
@@ -125,9 +125,9 @@ export default function checkout({ cart, addToCart, removeFromCart, clearCart, s
     const razor = new window.Razorpay(options);
     razor.open();
 
-    // if(response.success){
-    //   router.push('/order')
-    // }
+    if(response.success){
+      router.push('/order')
+    }
 
 
   };
